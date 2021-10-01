@@ -79,6 +79,12 @@ h4 {
 
 .github-link {
   text-decoration: none;
+  color: #1ab2a8;
+}
+
+.footer {
+  margin-top: 80px;
+  text-align: center;
 }
 
 .search-button:hover {
