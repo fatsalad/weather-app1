@@ -1,0 +1,87 @@
+body {
+  border: 3px solid #ffa726;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+h1,
+h2,
+h4 {
+  text-align: center;
+  margin: 20px;
+  color: #1ab2a8;
+}
+
+.celsius,
+.farenheit {
+  text-decoration: none;
+  font-size: 22px;
+  vertical-align: super;
+}
+.celsius {
+  margin-left: 15px;
+}
+.farenheit {
+  margin-left: -10px;
+}
+
+.city-input,
+.search-button,
+.current-location {
+  display: inline-block;
+  text-align: center;
+  border-radius: 30px;
+  margin-top: 30px;
+  padding: 15px;
+  border: 3px solid #1ab2a8;
+  background-color: white;
+}
+.search-button {
+  color: #1ab2a8;
+  transition: all 300ms ease-in-out;
+}
+
+.current-location {
+  display: block;
+  margin: 20px auto;
+  color: #1ab2a8;
+  transition: all 300ms ease-in-out;
+}
+
+.city-input {
+  width: 70%;
+}
+.temp-display {
+  text-align: center;
+  font-size: 68px;
+  color: #1ab2a8;
+}
+.col-4 {
+  text-align: center;
+  color: #1ab2a8;
+}
+.card {
+  border-radius: 30px;
+  text-align: center;
+  margin-top: 50px;
+  border: 2.5px solid #1ab2a8;
+  background-color: #d1f0ee;
+  color: #618590;
+  margin-left: 50px;
+}
+.forecast-temp-high,
+.forecast-temp-low {
+  font-size: 12px;
+}
+
+.search-button:hover {
+  color: white;
+  background-color: #1ab2a8;
+}
+.current-location:hover {
+  color: white;
+  background-color: #1ab2a8;
+}

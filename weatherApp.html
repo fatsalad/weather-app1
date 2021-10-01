@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div align="center">
+        <form id="city-search-input">
+          <input
+            type="text"
+            class="city-input"
+            placeholder="Enter City Name or Zip Code"
+            id="city-input"
+            autocomplete="off"
+          />
+          <input
+            type="submit"
+            class="search-button"
+            id="search-button"
+            value="Search"
+          />
+        </form>
+      </div>
+      <button id="current-location" class="current-location">
+        Current Location
+      </button>
+
+      <h1>Los Angeles</h1>
+      <h2><span id="day">Friday</span> <span id="time">7:51 PM</span></h2>
+      <h4>Clear</h4>
+      <p class="temp-display">🌘<span id="temp-display">69°F</span></p>
+
+      <div class="row">
+        <div class="col-4">Precipitation: 0 in</div>
+        <div class="col-4 fs-5" id="temp-max">High 97°</div>
+        <div class="col-4">Sunrise: 6:23 AM</div>
+        <div class="col-4">Wind: SSW 5mph</div>
+        <div class="col-4 fs-5" id="temp-min">Low 63°</div>
+        <div class="col-4">Sunset: 7:23 PM</div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 5rem">
+            <div class="card-body">
+              <h5 class="day-of-week">Sat</h5>
+              <p class="weather-emoji">☀</p>
+              <p class="forecast-temp-high">H: 93°</p>
+              <p class="forecast-temp-low">L: 63°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 5rem">
+            <div class="card-body">
+              <h5 class="day-of-week">Sun</h5>
+              <p class="weather-emoji">☀</p>
+              <p class="forecast-temp-high">H: 91°</p>
+              <p class="forecast-temp-low">L: 66°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 5rem">
+            <div class="card-body">
+              <h5 class="day-of-week">Mon</h5>
+              <p class="weather-emoji">☀</p>
+              <p class="forecast-temp-high">H: 90°</p>
+              <p class="forecast-temp-low">L: 66°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 5rem">
+            <div class="card-body">
+              <h5 class="day-of-week">Tue</h5>
+              <p class="weather-emoji">☀</p>
+              <p class="forecast-temp-high">H: 86°</p>
+              <p class="forecast-temp-low">L: 64°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 5rem">
+            <div class="card-body">
+              <h5 class="day-of-week">Wed</h5>
+              <p class="weather-emoji">☀</p>
+              <p class="forecast-temp-high">H: 84°</p>
+              <p class="forecast-temp-low">L: 63°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
+</html>
