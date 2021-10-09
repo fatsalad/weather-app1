@@ -52,6 +52,7 @@ h4 {
   margin: 20px auto;
   color: #1ab2a8;
   transition: all 300ms ease-in-out;
+  padding: 10px;
 }
 
 .city-input {
