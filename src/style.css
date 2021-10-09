@@ -1,7 +1,6 @@
 body {
   border: 3px solid #ffa726;
   margin: 10px;
-  padding: 20px;
   border-radius: 20px;
   margin-left: 200px;
   margin-right: 200px;
@@ -23,9 +22,8 @@ h4 {
     rgb(232, 245, 253) 3.3%,
     rgb(252, 253, 255) 109.6%
   );
-
+  max-width: 100%;
   border-radius: 20px;
-  margin: -20px;
 }
 
 .units {
