@@ -100,9 +100,7 @@ h4 {
 
 .active {
   color: black;
-  cursor: default;
 }
-
-.active:hover {
+.units:hover {
   cursor: default;
 }
