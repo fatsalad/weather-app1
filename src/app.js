@@ -45,6 +45,7 @@ function showWeather(response) {
   let humidityDisplay = document.querySelector("#humidity");
   let windSpeedDisplay = document.querySelector("#wind");
   let weatherDescription = document.querySelector("#weather-description");
+  let iconDisplay = document.querySelector("#icon");
 
   tempDisplay.innerHTML = `${temp}°F`;
   cityDisplay.innerHTML = `${city}`;
@@ -53,6 +54,14 @@ function showWeather(response) {
   windSpeedDisplay.innerHTML =
     "Wind Speed: " + Math.round(response.data.wind.speed) + " km/hr";
   weatherDescription.innerHTML = response.data.weather[0].description;
+  iconDisplay.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconDisplay.setAttribute(
+    "alt",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
+  );
 
   console.log(response.data);
 }
