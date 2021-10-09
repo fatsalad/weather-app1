@@ -19,16 +19,15 @@ h4 {
 }
 
 .celsius,
-.farenheit {
+.fahrenheit {
   text-decoration: none;
   font-size: 22px;
   vertical-align: super;
 }
-.celsius {
-  margin-left: 15px;
-}
-.farenheit {
-  margin-left: -10px;
+.divider {
+  color: black;
+  font-size: 22px;
+  vertical-align: super;
 }
 
 .city-input,
