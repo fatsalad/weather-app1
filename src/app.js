@@ -1,6 +1,6 @@
 // Format Date
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
+function formatDate() {
+  let date = new Date();
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -44,7 +44,7 @@ function showWeather(response) {
   let dateDisplay = document.querySelector("#date");
   tempDisplay.innerHTML = `${temp}°F`;
   cityDisplay.innerHTML = `${city}`;
-  dateDisplay.innerHTML = formatDate(response.data.dt * 1000);
+  dateDisplay.innerHTML = formatDate(response.data);
 
   console.log(response.data);
 }
