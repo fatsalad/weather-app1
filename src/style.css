@@ -36,7 +36,7 @@ h4 {
 }
 
 .divider {
-  color: black;
+  color: #1ab2a8;
   font-size: 22px;
   vertical-align: super;
 }
@@ -85,6 +85,9 @@ h4 {
   text-align: center;
   color: #1ab2a8;
 }
+.fs-5 {
+  margin-top: -15px;
+}
 .card {
   border-radius: 30px;
   text-align: center;
@@ -96,7 +99,7 @@ h4 {
 }
 .forecast-temp-high,
 .forecast-temp-low {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .github-link {
