@@ -73,11 +73,13 @@ h4 {
   font-size: 68px;
   color: #1ab2a8;
   margin-top: -20px;
+  margin-bottom: 20px;
 }
 
 .weather-image {
   display: block;
   margin: 0 auto;
+  margin-top: -15px;
 }
 .col-4 {
   text-align: center;
