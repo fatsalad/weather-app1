@@ -22,7 +22,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-// Find and Display Weather by City
+// Find and Display Weather, Day, Time by City
 
 function searchCity(city) {
   let key = "5f97d4820c3fc75300e58d6ea5ec0f04";
@@ -36,18 +36,20 @@ function formSubmit(event) {
   searchCity(city);
 }
 
-let citySearchInput = document.querySelector("#city-search-input");
-citySearchInput.addEventListener("submit", formSubmit);
-
 function showWeather(response) {
   let city = response.data.name;
   let temp = Math.round(response.data.main.temp);
   let cityDisplay = document.querySelector("h1");
   let tempDisplay = document.querySelector("#temp-display");
+  let dateDisplay = document.querySelector("#date");
   tempDisplay.innerHTML = `${temp}°F`;
   cityDisplay.innerHTML = `${city}`;
+  dateDisplay.innerHTML = formatDate(response.data.dt * 1000);
+
   console.log(response.data);
 }
+let citySearchInput = document.querySelector("#city-search-input");
+citySearchInput.addEventListener("submit", formSubmit);
 
 // Find Weather by Location
 function usePosition(position) {
