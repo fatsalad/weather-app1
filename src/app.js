@@ -47,7 +47,9 @@ function showWeather(response) {
   let weatherDescription = document.querySelector("#weather-description");
   let iconDisplay = document.querySelector("#icon");
 
-  tempDisplay.innerHTML = `${temp}°F`;
+  fahrenheitTemp = Math.round(response.data.main.temp);
+
+  tempDisplay.innerHTML = `${temp}`;
   cityDisplay.innerHTML = `${city}`;
   dateDisplay.innerHTML = formatDate(response.data);
   humidityDisplay.innerHTML = "Humidity: " + response.data.main.humidity + "%";
@@ -67,6 +69,29 @@ function showWeather(response) {
 }
 let citySearchInput = document.querySelector("#city-search-input");
 citySearchInput.addEventListener("submit", formSubmit);
+
+//Convert temp units
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  let celsiusTempDisplay = document.querySelector("#temp-display");
+  celsiusTempDisplay.innerHTML = Math.round(celsiusTemp);
+}
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheitTempDisplay = document.querySelector("#temp-display");
+  fahrenheitTempDisplay.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheitTemp = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 // Find Weather by Location
 function usePosition(position) {
