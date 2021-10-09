@@ -54,7 +54,7 @@ function showWeather(response) {
   dateDisplay.innerHTML = formatDate(response.data);
   humidityDisplay.innerHTML = "Humidity: " + response.data.main.humidity + "%";
   windSpeedDisplay.innerHTML =
-    "Wind Speed: " + Math.round(response.data.wind.speed) + " km/hr";
+    "Wind Speed: " + Math.round(response.data.wind.speed) + " m/hr";
   weatherDescription.innerHTML = response.data.weather[0].description;
   iconDisplay.setAttribute(
     "src",
