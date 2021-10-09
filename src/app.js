@@ -42,9 +42,17 @@ function showWeather(response) {
   let cityDisplay = document.querySelector("h1");
   let tempDisplay = document.querySelector("#temp-display");
   let dateDisplay = document.querySelector("#date");
+  let humidityDisplay = document.querySelector("#humidity");
+  let windSpeedDisplay = document.querySelector("#wind");
+  let weatherDescription = document.querySelector("#weather-description");
+
   tempDisplay.innerHTML = `${temp}°F`;
   cityDisplay.innerHTML = `${city}`;
   dateDisplay.innerHTML = formatDate(response.data);
+  humidityDisplay.innerHTML = "Humidity: " + response.data.main.humidity + "%";
+  windSpeedDisplay.innerHTML =
+    "Wind Speed: " + Math.round(response.data.wind.speed) + " km/hr";
+  weatherDescription.innerHTML = response.data.weather[0].description;
 
   console.log(response.data);
 }
