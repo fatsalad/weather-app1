@@ -22,6 +22,7 @@ h4 {
   text-decoration: none;
   font-size: 22px;
   vertical-align: super;
+  position: relative;
 }
 
 .divider {
@@ -60,6 +61,13 @@ h4 {
   text-align: center;
   font-size: 68px;
   color: #1ab2a8;
+  margin-top: -10px;
+}
+
+.weather-emoji {
+  display: block;
+  margin: 0 auto;
+  width: 10%;
 }
 .col-4 {
   text-align: center;
