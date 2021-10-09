@@ -1,10 +1,16 @@
-// Show Current Day
-
-function showCurrentDay() {
-  let currentDay = document.querySelector("#day");
-  let now = new Date();
+// Format Date
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   let days = [
-    "Sunday,",
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -12,25 +18,9 @@ function showCurrentDay() {
     "Friday",
     "Saturday",
   ];
-  let day = days[now.getDay()];
-  currentDay.innerHTML = day;
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
-showCurrentDay();
-
-// Show Current Time
-
-function showCurrentTime() {
-  let currentTime = document.querySelector("#time");
-  let now = new Date();
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-  if (now.getMinutes() < 10) {
-    currentTime.innerHTML = hours + ":0" + minutes;
-  } else {
-    currentTime.innerHTML = hours + ":" + minutes;
-  }
-}
-showCurrentTime();
 
 // Find and Display Weather by City
 
