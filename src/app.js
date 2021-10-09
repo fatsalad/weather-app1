@@ -77,12 +77,16 @@ function displayCelsiusTemp(event) {
   let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
   let celsiusTempDisplay = document.querySelector("#temp-display");
   celsiusTempDisplay.innerHTML = Math.round(celsiusTemp);
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }
 
 function displayFahrenheitTemp(event) {
   event.preventDefault();
   let fahrenheitTempDisplay = document.querySelector("#temp-display");
   fahrenheitTempDisplay.innerHTML = Math.round(fahrenheitTemp);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 
 let fahrenheitTemp = null;
