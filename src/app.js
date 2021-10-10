@@ -26,6 +26,7 @@ function formatDate() {
 function formatSunriseSunsetTime(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
+  let minutes = date.getMinutes();
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -59,6 +60,8 @@ function showWeather(response) {
   let windSpeedDisplay = document.querySelector("#wind");
   let weatherDescription = document.querySelector("#weather-description");
   let iconDisplay = document.querySelector("#icon");
+  let sunriseDisplay = document.querySelector("#sunrise");
+  let sunsetDisplay = document.querySelector("#sunset");
 
   fahrenheitTemp = Math.round(response.data.main.temp);
 
@@ -77,6 +80,10 @@ function showWeather(response) {
     "alt",
     `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
   );
+  sunriseDisplay.innerHTML =
+    "Sunrise: " + formatSunriseSunsetTime(response.data.sys.sunrise * 1000);
+  sunsetDisplay.innerHTML =
+    "Sunset: " + formatSunriseSunsetTime(response.data.sys.sunset * 1000);
 
   console.log(response.data);
 }
