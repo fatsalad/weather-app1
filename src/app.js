@@ -55,6 +55,8 @@ function showWeather(response) {
   let temp = Math.round(response.data.main.temp);
   let cityDisplay = document.querySelector("h1");
   let tempDisplay = document.querySelector("#temp-display");
+  let tempDisplayHigh = document.querySelector("#temp-max");
+  let tempDisplayLow = document.querySelector("#temp-min");
   let dateDisplay = document.querySelector("#date");
   let humidityDisplay = document.querySelector("#humidity");
   let windSpeedDisplay = document.querySelector("#wind");
@@ -64,10 +66,15 @@ function showWeather(response) {
   let sunsetDisplay = document.querySelector("#sunset");
 
   fahrenheitTemp = Math.round(response.data.main.temp);
+  fahrenheitTempHigh = Math.round(response.data.main.temp_max);
+  fahrenheitTempLow = Math.round(response.data.main.temp_min);
 
   tempDisplay.innerHTML = `${temp}`;
   cityDisplay.innerHTML = `${city}`;
   dateDisplay.innerHTML = formatDate(response.data);
+  tempDisplayHigh.innerHTML = `High: ${fahrenheitTempHigh}`;
+  tempDisplayLow.innerHTML = `Low: ${fahrenheitTempLow}`;
+
   humidityDisplay.innerHTML = "Humidity: " + response.data.main.humidity + "%";
   windSpeedDisplay.innerHTML =
     "Wind Speed: " + Math.round(response.data.wind.speed) + " m/hr";
@@ -95,8 +102,14 @@ citySearchInput.addEventListener("submit", formSubmit);
 function displayCelsiusTemp(event) {
   event.preventDefault();
   let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  let celsiusTempHigh = ((fahrenheitTempHigh - 32) * 5) / 9;
+  let celsiusTempLow = ((fahrenheitTempLow - 32) * 5) / 9;
   let celsiusTempDisplay = document.querySelector("#temp-display");
+  let celsiusTempDisplayHigh = document.querySelector("#temp-max");
+  let celsiusTempDisplayLow = document.querySelector("#temp-min");
   celsiusTempDisplay.innerHTML = Math.round(celsiusTemp);
+  celsiusTempDisplayHigh.innerHTML = "High: " + Math.round(celsiusTempHigh);
+  celsiusTempDisplayLow.innerHTML = "Low: " + Math.round(celsiusTempLow);
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
 }
@@ -110,6 +123,8 @@ function displayFahrenheitTemp(event) {
 }
 
 let fahrenheitTemp = null;
+let fahrenheitTempHigh = null;
+let fahrenheitTempLow = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
