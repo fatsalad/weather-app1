@@ -72,8 +72,8 @@ function showWeather(response) {
   tempDisplay.innerHTML = `${temp}`;
   cityDisplay.innerHTML = `${city}`;
   dateDisplay.innerHTML = formatDate(response.data);
-  tempDisplayHigh.innerHTML = `High: ${fahrenheitTempHigh}`;
-  tempDisplayLow.innerHTML = `Low: ${fahrenheitTempLow}`;
+  tempDisplayHigh.innerHTML = `High: ${fahrenheitTempHigh}°`;
+  tempDisplayLow.innerHTML = `Low: ${fahrenheitTempLow}°`;
 
   humidityDisplay.innerHTML = "Humidity: " + response.data.main.humidity + "%";
   windSpeedDisplay.innerHTML =
@@ -108,8 +108,9 @@ function displayCelsiusTemp(event) {
   let celsiusTempDisplayHigh = document.querySelector("#temp-max");
   let celsiusTempDisplayLow = document.querySelector("#temp-min");
   celsiusTempDisplay.innerHTML = Math.round(celsiusTemp);
-  celsiusTempDisplayHigh.innerHTML = "High: " + Math.round(celsiusTempHigh);
-  celsiusTempDisplayLow.innerHTML = "Low: " + Math.round(celsiusTempLow);
+  celsiusTempDisplayHigh.innerHTML =
+    "High: " + Math.round(celsiusTempHigh) + "°";
+  celsiusTempDisplayLow.innerHTML = "Low: " + Math.round(celsiusTempLow) + "°";
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
 }
@@ -117,7 +118,13 @@ function displayCelsiusTemp(event) {
 function displayFahrenheitTemp(event) {
   event.preventDefault();
   let fahrenheitTempDisplay = document.querySelector("#temp-display");
+  let fahrenheitTempDisplayHigh = document.querySelector("#temp-max");
+  let fahrenheitTempDisplayLow = document.querySelector("#temp-min");
   fahrenheitTempDisplay.innerHTML = Math.round(fahrenheitTemp);
+  fahrenheitTempDisplayHigh.innerHTML =
+    "High: " + Math.round(fahrenheitTempHigh) + "°";
+  fahrenheitTempDisplayLow.innerHTML =
+    "Low: " + Math.round(fahrenheitTempLow) + "°";
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
 }
