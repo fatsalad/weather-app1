@@ -70,12 +70,12 @@ function displayForecast(response) {
                 
                 class="forecast-image"
               />
-              <p class="forecast-temp-high">H: ${Math.round(
+              <p class="forecast-temp-high">${Math.round(
                 forecastDay.temp.max
-              )}°</p>
-              <p class="forecast-temp-low">L: ${Math.round(
+              )}°F</p>
+              <p class="forecast-temp-low">${Math.round(
                 forecastDay.temp.min
-              )}°</p>
+              )}°F</p>
             </div>
           </div>
           </div>`;
