@@ -40,7 +40,8 @@ function formatTime(timestamp) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  return day;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
 }
 
 //Find and display forecast
@@ -50,11 +51,12 @@ function displayForecast(response) {
   let forecastDisplay = document.querySelector("#forecast");
 
   let forecastHTML = `<div class= "row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `  <div class="col">
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 7 && index > 0) {
+      forecastHTML =
+        forecastHTML +
+        `  <div class="col">
           <div class="card" style="width: 5rem">
             <div class="card-body">
               <h5 class="day-of-week">${formatDay(forecastDay.dt)}</h5>
@@ -77,6 +79,7 @@ function displayForecast(response) {
             </div>
           </div>
           </div>`;
+    }
   });
   forecastHTML = forecastHTML + ` </div>`;
   forecastDisplay.innerHTML = forecastHTML;
@@ -130,7 +133,7 @@ function showWeather(response) {
 
   humidityDisplay.innerHTML = "Humidity: " + response.data.main.humidity + "%";
   windSpeedDisplay.innerHTML =
-    "Wind Speed: " + Math.round(response.data.wind.speed) + " m/hr";
+    "Wind Speed: " + Math.round(response.data.wind.speed) + " mph";
   weatherDescription.innerHTML = response.data.weather[0].description;
   iconDisplay.setAttribute(
     "src",
