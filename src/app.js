@@ -59,7 +59,9 @@ function displayForecast(response) {
             <div class="card-body">
               <h5 class="day-of-week">${formatDay(forecastDay.dt)}</h5>
               <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
                 alt=""
                 id="forecast-image"
                 class="forecast-image"
