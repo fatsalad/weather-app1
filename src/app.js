@@ -39,17 +39,20 @@ function formatSunriseSunsetTime(timestamp) {
 //Find and display forecast
 function displayForecast() {
   let forecastDisplay = document.querySelector("#forecast");
+
   let forecastHTML = `<div class= "row">`;
-  forecastHTML =
-    forecastHTML +
-    `  <div class="col">
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `  <div class="col">
           <div class="card" style="width: 5rem">
             <div class="card-body">
-              <h5 class="day-of-week">Sat</h5>
+              <h5 class="day-of-week">${day}</h5>
               <img
                 src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
                 alt=""
-                id="icon"
+                id="forecast-icon"
                 class="forecast-image"
               />
               <p class="forecast-temp-high">H: 93°</p>
@@ -57,6 +60,7 @@ function displayForecast() {
             </div>
           </div>
           </div>`;
+  });
   forecastHTML = forecastHTML + ` </div>`;
   forecastDisplay.innerHTML = forecastHTML;
 }
