@@ -62,8 +62,10 @@ function displayForecast(response) {
                 src="http://openweathermap.org/img/wn/${
                   forecastDay.weather[0].icon
                 }@2x.png"
-                alt=""
-                id="forecast-image"
+                alt="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].description
+                }@2x.png"
+                
                 class="forecast-image"
               />
               <p class="forecast-temp-high">H: ${Math.round(
