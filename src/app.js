@@ -23,7 +23,7 @@ function formatDate() {
 }
 
 // Format time for sunrise and sunset using timestamp
-function formatSunriseSunsetTime(timestamp) {
+function formatTime(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
   let minutes = date.getMinutes();
@@ -36,33 +36,53 @@ function formatSunriseSunsetTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+// Format Day for Forecast using timestamp
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  return day;
+}
+
 //Find and display forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastDisplay = document.querySelector("#forecast");
 
   let forecastHTML = `<div class= "row">`;
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `  <div class="col">
           <div class="card" style="width: 5rem">
             <div class="card-body">
-              <h5 class="day-of-week">${day}</h5>
+              <h5 class="day-of-week">${formatDay(forecastDay.dt)}</h5>
               <img
                 src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
                 alt=""
-                id="forecast-icon"
+                id="forecast-image"
                 class="forecast-image"
               />
-              <p class="forecast-temp-high">H: 93°</p>
-              <p class="forecast-temp-low">L: 63°</p>
+              <p class="forecast-temp-high">H: ${Math.round(
+                forecastDay.temp.max
+              )}°</p>
+              <p class="forecast-temp-low">L: ${Math.round(
+                forecastDay.temp.min
+              )}°</p>
             </div>
           </div>
           </div>`;
   });
   forecastHTML = forecastHTML + ` </div>`;
   forecastDisplay.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let key = "5f97d4820c3fc75300e58d6ea5ec0f04";
+  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&units=imperial`;
+
+  axios.get(url).then(displayForecast);
 }
 
 // Find and Display Weather, Day, Time by City
@@ -117,11 +137,11 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
   );
   sunriseDisplay.innerHTML =
-    "Sunrise: " + formatSunriseSunsetTime(response.data.sys.sunrise * 1000);
+    "Sunrise: " + formatTime(response.data.sys.sunrise * 1000);
   sunsetDisplay.innerHTML =
-    "Sunset: " + formatSunriseSunsetTime(response.data.sys.sunset * 1000);
+    "Sunset: " + formatTime(response.data.sys.sunset * 1000);
 
-  console.log(response.data);
+  getForecast(response.data.coord);
 }
 let citySearchInput = document.querySelector("#city-search-input");
 citySearchInput.addEventListener("submit", formSubmit);
@@ -185,4 +205,4 @@ function findPosition(event) {
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", findPosition);
 
-displayForecast();
+searchCity("Los Angeles");
