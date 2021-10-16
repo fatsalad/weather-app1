@@ -36,6 +36,31 @@ function formatSunriseSunsetTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 
+//Find and display forecast
+function displayForecast() {
+  let forecastDisplay = document.querySelector("#forecast");
+  let forecastHTML = `<div class= "row">`;
+  forecastHTML =
+    forecastHTML +
+    `  <div class="col">
+          <div class="card" style="width: 5rem">
+            <div class="card-body">
+              <h5 class="day-of-week">Sat</h5>
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                alt=""
+                id="icon"
+                class="forecast-image"
+              />
+              <p class="forecast-temp-high">H: 93°</p>
+              <p class="forecast-temp-low">L: 63°</p>
+            </div>
+          </div>
+          </div>`;
+  forecastHTML = forecastHTML + ` </div>`;
+  forecastDisplay.innerHTML = forecastHTML;
+}
+
 // Find and Display Weather, Day, Time by City
 
 function searchCity(city) {
@@ -155,3 +180,5 @@ function findPosition(event) {
 
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", findPosition);
+
+displayForecast();

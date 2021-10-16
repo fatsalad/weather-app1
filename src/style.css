@@ -81,6 +81,12 @@ h4 {
   margin: 0 auto;
   margin-top: -15px;
 }
+
+.forecast-image {
+  display: block;
+  margin: 10px auto;
+  width: 30px;
+}
 .col-4 {
   text-align: center;
   color: #1ab2a8;
