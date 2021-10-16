@@ -46,7 +46,6 @@ function formatDay(timestamp) {
 
 //Find and display forecast
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastDisplay = document.querySelector("#forecast");
 
